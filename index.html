@@ -28,8 +28,9 @@
         require([
             "esri/config", 
             "esri/Map", 
-            "esri/views/MapView" ],
-            (esriConfig, Map, MapView) => {
+            "esri/views/MapView",
+            "esri/widgets/Locate" ],
+            (esriConfig, Map, MapView, Locate) => {
             
             esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurFoJhgAIY5vGdEdRRAp_EKP3hX46okWbzREzvFOzP3eLMTfinmEi1544H3VrGFnlV6so5dUw7YSu9YGDC-954nuy6aTLI9VPTXITBZEeNsSF0B_tJQ2mneOXc37qlXwggQdzOgIhxiVPZ-epbypcjNDg4G07YzvTAEXRmJH4Uzp6A7Fe2exbTdDRIfg-kRmtFyJLbin0Nuyzz1scUr_FYroHbqoG10J0HaQOMyE-HceUAT1_1S7BNGTZ";
             
@@ -42,7 +43,14 @@
                 map: map,               // References the map object
                 center: [-88.5624,44.0247], // Oshkosh WI
                 zoom: 12
-            }); 
+            });
+            
+            const locateBtn = new Locate({
+                view: view
+            });
+
+            // Add the locate widget to the top left corner of the view
+            view.ui.add(locateBtn, "top-left")
         });
 
     </script>
