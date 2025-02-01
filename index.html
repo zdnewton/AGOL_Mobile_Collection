@@ -34,12 +34,14 @@
             esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurFoJhgAIY5vGdEdRRAp_EKP3hX46okWbzREzvFOzP3eLMTfinmEi1544H3VrGFnlV6so5dUw7YSu9YGDC-954nuy6aTLI9VPTXITBZEeNsSF0B_tJQ2mneOXc37qlXwggQdzOgIhxiVPZ-epbypcjNDg4G07YzvTAEXRmJH4Uzp6A7Fe2exbTdDRIfg-kRmtFyJLbin0Nuyzz1scUr_FYroHbqoG10J0HaQOMyE-HceUAT1_1S7BNGTZ";
             
             const map = new Map({
-                basemap: "satellite"    // initial basemap
+                basemap: "satellite",    // initial basemap
             });
             
             const view = new MapView({
                 container: "viewDiv",   // Reference to the DOM node that will contain the view
-                map: map                // References the map object
+                map: map,               // References the map object
+                center: [-88.5426,44.0247], // Oshkosh WI
+                zoom: 6
             }); 
         });
 
