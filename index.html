@@ -30,8 +30,9 @@
             "esri/Map", 
             "esri/views/MapView",
             "esri/widgets/Locate",
-            "esri/widgets/Search" ],
-            (esriConfig, Map, MapView, Locate, Search) => {
+            "esri/widgets/Search",
+            "esri/widgets/Extend" ],
+            (esriConfig, Map, MapView, Locate, Search, Extend) => {
             
             esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurFoJhgAIY5vGdEdRRAp_EKP3hX46okWbzREzvFOzP3eLMTfinmEi1544H3VrGFnlV6so5dUw7YSu9YGDC-954nuy6aTLI9VPTXITBZEeNsSF0B_tJQ2mneOXc37qlXwggQdzOgIhxiVPZ-epbypcjNDg4G07YzvTAEXRmJH4Uzp6A7Fe2exbTdDRIfg-kRmtFyJLbin0Nuyzz1scUr_FYroHbqoG10J0HaQOMyE-HceUAT1_1S7BNGTZ";
             
@@ -54,9 +55,16 @@
                 view: view
             });
 
+            let searchExpand = new Expand({
+                expandIcon: "search",
+                view: view,
+                content: searchWidget,
+                expanded: false
+            });
+
             // Add the locate widget to the top left corner of the view
             view.ui.add(locateBtn, "top-left");
-            view.ui.add(searchWidget, "top-left");
+            view.ui.add(searchExpand, "top-left");
         });
 
     </script>
