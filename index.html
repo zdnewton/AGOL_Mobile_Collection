@@ -19,6 +19,7 @@
          width: 100%;
         }
 
+        /*Sets position and appearance or the survey button*/
         .addRecordBtn {
             position: absolute;
             z-index: 10;
@@ -32,11 +33,12 @@
             font-size: 14px;
             cursor: pointer;
             text-decoration: none;
-            }
+        }
 
-            .addRecordBtn:hover {
+        /*Changes buttons color on mouseover*/
+        .addRecordBtn:hover {
             background-color: #005a87;
-            }
+        }
 
        </style>
 
@@ -58,30 +60,35 @@
             
             esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurFoJhgAIY5vGdEdRRAp_EKP3hX46okWbzREzvFOzP3eLMTfinmEi1544H3VrGFnlV6so5dUw7YSu9YGDC-954nuy6aTLI9VPTXITBZEeNsSF0B_tJQ2mneOXc37qlXwggQdzOgIhxiVPZ-epbypcjNDg4G07YzvTAEXRmJH4Uzp6A7Fe2exbTdDRIfg-kRmtFyJLbin0Nuyzz1scUr_FYroHbqoG10J0HaQOMyE-HceUAT1_1S7BNGTZ";
             
+            // Creates map element
             const map = new Map({
-                basemap: "satellite",    // initial basemap
+                basemap: "satellite",       // sets initial basemap
             });
             
+            // Creates map view
             const view = new MapView({
-                container: "viewDiv",   // Reference to the DOM node that will contain the view
-                map: map,               // References the map object
+                container: "viewDiv",       // Reference to the DOM node that will contain the view
+                map: map,                   // References the map object
                 center: [-88.5624,44.0247], // Oshkosh WI
-                zoom: 12
+                zoom: 12                    // City Level zoom
             });
             
+            // Creates locator button 
             const locateBtn = new Locate({
                 view: view
             });
 
+            // Creates a search feature
             const searchWidget = new Search({
                 view: view
             });
 
+            // Allows search feature to collapse
             let searchExpand = new Expand({
-                expandIcon: "search",
-                view: view,
-                content: searchWidget,
-                expanded: false
+                expandIcon: "search",           // sets icon of widget button
+                view: view,         
+                content: searchWidget,  
+                expanded: false                 // Sets to default collapsed
             });
 
             // Create featurelayer from feature service 
@@ -97,6 +104,7 @@
 
             // Add the locate widget to the top left corner of the view
             view.ui.add(locateBtn, "top-left");
+            // Add the search widget to the top-left corner of the view
             view.ui.add(searchExpand, "top-left");
         });
 
@@ -106,7 +114,10 @@
   
   <body>
     
+    <!--Adds the survey button to the mobile website-->
     <a href="https://arcg.is/1CKPbG0"target="_blank" class="addRecordBtn">Add Record</a>
+    
+    <!--Div that holds the map element and all associated elements-->
     <div id="viewDiv"></div>
 
   </body>
